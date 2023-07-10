@@ -8,30 +8,37 @@
   
   <title>Frontend Mentor | Age calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <main>
+    <section class="card__container">
+      <form action="#">
+        <label for="day">Day</label>
+        <input id="day" type="number" name="date" placeholder="28" required>
+        <p class="invalid-form hide">Must be a valid date</p>
+        <p class="error-empty hide">The field is empty</p>
+        <p class="invalid-day hide">Must be a valid day</p>
+        <label for="month">Month</label>
+        <input id="month" type="number" name="date" placeholder="11" required>
+        <p class="error-empty hide">The field is empty</p>
+        <p class="invalid-month hide">Must be a valid month</p>
+        <label for="year">Year</label>
+        <input id="year" type="number" name="date" placeholder="1999" required>
+        <p class="error-empty hide">The field is empty</p>
+        <p class="invalid-year hide">Must be in the past</p>
 
-  Day
-  DD
+        <button><img src="./assets/images/icon-arrow.svg" alt=""></button>
+      </form>
 
-  Month
-  MM
-
-  Year
-  YYYY
-
-  -- years
-  -- months
-  -- days
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+      <div class="result__container">
+        <p class="year-p"><span class="year">- -</span> years</p>
+        <p class="months-p"><span class="months">- -</span> months</p>
+        <p class="year-p"><span class="days">- -</span> days</p>
+      </div>
+    </section>
+  </main>
+  <script src="./script.js"></script>
 </body>
 </html>
