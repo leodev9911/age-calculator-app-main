@@ -15,27 +15,32 @@
   <main>
     <section class="card__container">
       <form action="#">
-        <label for="day">Day</label>
-        <input id="day" type="number" name="date" placeholder="28" required>
-        <p class="invalid-form hide">Must be a valid date</p>
-        <p class="error-empty hide">The field is empty</p>
-        <p class="invalid-day hide">Must be a valid day</p>
-        <label for="month">Month</label>
-        <input id="month" type="number" name="date" placeholder="11" required>
-        <p class="error-empty hide">The field is empty</p>
-        <p class="invalid-month hide">Must be a valid month</p>
-        <label for="year">Year</label>
-        <input id="year" type="number" name="date" placeholder="1999" required>
-        <p class="error-empty hide">The field is empty</p>
-        <p class="invalid-year hide">Must be in the past</p>
-
+        <div class="input-div">
+          <label for="day" class="input-label">D A Y</label>
+          <input id="day" type="number" name="date" class="input" placeholder="28" required>
+          <p class="invalid-form hide">Must be a valid date</p>
+          <p class="error-empty hide">The field is empty</p>
+          <p class="invalid hide">Must be a valid day</p>
+        </div>
+        <div class="input-div">
+          <label for="month" class="input-label">M O N T H</label>
+          <input id="month" type="number" name="date" class="input" placeholder="11" required>
+          <p class="error-empty hide">The field is empty</p>
+          <p class="invalid hide">Must be a valid month</p>
+        </div>
+        <div class="input-div">
+          <label for="year" class="input-label">Y E A R</label>
+          <input id="year" type="number" name="date" class="input" placeholder="1999" required>
+          <p class="error-empty hide">The field is empty</p>
+          <p class="invalid hide">Must be in the past</p>
+        </div>
         <button><img src="./assets/images/icon-arrow.svg" alt=""></button>
       </form>
 
       <div class="result__container">
-        <p class="year-p"><span class="year">- -</span> years</p>
-        <p class="months-p"><span class="months">- -</span> months</p>
-        <p class="year-p"><span class="days">- -</span> days</p>
+        <p class="result-p"><span class="year">- -</span> years</p>
+        <p class="result-p"><span class="months">- -</span> months</p>
+        <p class="result-p"><span class="days">- -</span> days</p>
       </div>
     </section>
   </main>
