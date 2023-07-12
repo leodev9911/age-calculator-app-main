@@ -27,6 +27,8 @@ function handleDateCalc(event) {
     let daysBetween = actualDay - userDay;
 
     let isValid = userDay > 0 && userDay <= new Date(userYear, userMonth, 0).getDate();
+    let isValidDay = inputs[0].value >= 0 && inputs[0].value <= 31;
+
 
     if (inputs[0].value === '' && inputs[1].value === '' && inputs[2].value === '') {
         errorEmpty.forEach(message => {
@@ -35,6 +37,24 @@ function handleDateCalc(event) {
         labels.forEach(label => {
             label.classList.add('error');
         })
+        return;
+    } else if (inputs[0].value === '' && inputs[1].value === '') {
+        errorEmpty[0].classList.remove('hide');
+        labels[0].classList.add('error');
+        errorEmpty[1].classList.remove('hide');
+        labels[1].classList.add('error');
+        return;
+    } else if (inputs[0].value === '' && inputs[2].value === '') {
+        errorEmpty[0].classList.remove('hide');
+        labels[0].classList.add('error');
+        errorEmpty[2].classList.remove('hide');
+        labels[2].classList.add('error');
+        return;
+    } else if (inputs[1].value === '' && inputs[2].value === '') {
+        errorEmpty[1].classList.remove('hide');
+        labels[1].classList.add('error');
+        errorEmpty[2].classList.remove('hide');
+        labels[2].classList.add('error');
         return;
     } else if (inputs[0].value === '') {
         errorEmpty[0].classList.remove('hide');
@@ -48,13 +68,7 @@ function handleDateCalc(event) {
         errorEmpty[2].classList.remove('hide');
         labels[2].classList.add('error');
         return;
-    }
-
-    // for (let i = 0; i < inputs.length; i++) {
-    //     if (inputs[i].value === '') {
-    //         errorEmpty[i].classList.remove('hide');
-    //     }
-    // }
+    } 
   
     if (!isValid) {
         inputs.forEach(input => {
@@ -76,6 +90,17 @@ function handleDateCalc(event) {
         invalidForm.classList.remove('add');
     }
 
+    if (!isValidDay) {
+        inputs[0].classList.add('error');
+        invalidData[0].classList.remove('hide');
+        labels[0].classList.add('error');
+        return;
+    } else {
+        inputs[0].classList.remove('error');
+        invalidData[0].classList.add('hide');
+        labels[0].classList.remove('error');
+    }
+
     if (monthBetween < 0) {
         yearsBetween--;
         monthBetween += 12;
@@ -93,27 +118,7 @@ function handleDateCalc(event) {
 
 calcButton.addEventListener('click', handleDateCalc);
 
-// const handleInputChange = () => {
-
-//     console.log(inputs.value);
-
-//     function isValid(date) {
-//         if (date)
-//         return (
-//             !isNaN(date) &&
-//             date.getFullYear() > 0 &&
-//             date.getFullYear() <= 2023 &&
-//             date.getMonth() >= 0 &&
-//             date.getMonth() < 12 &&
-//             date.getDate() > 0 &&
-//             date.getDate() <= new Date(date.getFullYear, date.getMonth, 0).getDate()
-//           );
-//     }
-    
-//     console.log(isValid(userDate));
-// }
-
-inputs[0].addEventListener('input', () => {
+inputs[0].addEventListener('input', () => {  
     inputs.forEach(input => {
         input.classList.remove('error');
     })
@@ -121,6 +126,9 @@ inputs[0].addEventListener('input', () => {
         label.classList.remove('error');
     })
     invalidForm.classList.add('hide');
+    errorEmpty.forEach(message => {
+        message.classList.add('hide');
+    }) 
 })
 
 inputs[1].addEventListener('input', () => {
@@ -150,20 +158,3 @@ inputs[2].addEventListener('input', () => {
         labels[2].classList.remove('error');
     }
 })
-
-// inputs.forEach(input => {
-//     input.addEventListener('input', () => {
-//         inputs.forEach(input => {
-
-//             let userDate = new Date(inputs[2].value, inputs[1].value, inputs[0].value);
-//             let userYear = userDate.getFullYear();
-//             let userMonth = userDate.getMonth();
-//             let userDay = userDate.getDate();
-
-//             if (userDate.getFullYear() > 0 && userDate.getFullYear() <= 2023) {
-//                 input.classList.add('error');
-//             }
-//         })
-//     });
-// })
-
