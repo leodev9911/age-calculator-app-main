@@ -89,7 +89,7 @@ form {
     color: var(--off-black);
 }
 .input::placeholder {
-    color: var(--off-black);
+    color: var(--light-grey);
 }
 .input:focus {
     border: 1px solid var(--purple);
